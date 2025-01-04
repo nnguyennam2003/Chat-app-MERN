@@ -3,15 +3,15 @@ import { THEMES } from "../constants"
 import { useThemeStore } from "../store/useThemeStore"
 
 const PREVIEW_MESSAGES = [
-    { id: 1, content: "Hey! How's it going?", isSent: false },
-    { id: 2, content: "Hey! How's it going?", isSent: true },
+    { id: 1, content: "Lorem Ipsum is simply dummy text of the printing", isSent: false },
+    { id: 2, content: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", isSent: true },
 ]
 
 export default function SettingPage() {
     const { theme, setTheme } = useThemeStore()
 
     return (
-        <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
+        <div className="min-h-screen container mx-auto px-4 pt-20 max-w-5xl">
             <div className="space-y-6">
                 <div className="flex flex-col gap-1">
                     <h2 className="text-lg font-semibold">Theme</h2>
@@ -34,7 +34,6 @@ export default function SettingPage() {
                                     <div className="rounded bg-accent"></div>
                                     <div className="rounded bg-neutral"></div>
                                 </div>
-                                {/* <span className="text-[11px] font-medium truncate w-full text-center"></span> */}
                             </div>
                         </button>
                     ))}
@@ -47,9 +46,9 @@ export default function SettingPage() {
                             <div className="bg-base-100 rounded-xl shadow-sm overflow-hidden">
                                 <div className="px-4 py-3 border-b border-base-300 bg-base-100">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-content font-medium">J</div>
+                                        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-content font-medium">N</div>
                                         <div>
-                                            <h3 className="font-medium text-sm">John Doe</h3>
+                                            <h3 className="font-medium text-sm">Nam Nguyen</h3>
                                             <p className="text-xs text-base-content/70">Online</p>
                                         </div>
                                     </div>

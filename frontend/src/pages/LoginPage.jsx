@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { useAuthStore } from "../store/useAuthStore"
-import { Eye, EyeOff, Loader2, Lock, Mail, MessagesSquare } from "lucide-react"
+import { Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react"
 import { Link } from "react-router-dom"
-import AuthImagePattern from "../components/AuthImagePattern"
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false)
@@ -10,23 +9,24 @@ export default function LoginPage() {
         email: "",
         password: ""
     })
-    const {login, isLoggingIn} = useAuthStore()
+    const { login, isLoggingIn } = useAuthStore()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         login(formData)
     }
+
     return (
-        <div className="h-screen grid lg:grid-cols-2">
+        <div className="h-screen flex items-center justify-center">
             <div className="flex flex-col justify-center items-center p-6 sm:p-12">
                 <div className="w-full max-w-md space-y-8">
                     {/* LOGO */}
                     <div className="text-center mb-8">
                         <div className="flex flex-col items-center gap-2 group">
                             <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                <MessagesSquare className="size-6 text-primary" />
+                                <img src="/messenger.webp" alt="logo" className="size-6" />
                             </div>
-                            <h1 className="text-2xl font-bold mt-2">Welcome Back</h1>
+                            <h1 className="text-2xl font-bold mt-2">Connect with your favourite people</h1>
                             <p className="text-base-context/60">Sign in to your account</p>
                         </div>
                     </div>
@@ -100,11 +100,6 @@ export default function LoginPage() {
                     </div>
                 </div>
             </div>
-
-            <AuthImagePattern
-                title="Join our community"
-                subtitle="Connect with friends, share moment, and stay in touch with your loved ones."
-            />
         </div>
     )
 }

@@ -5,6 +5,7 @@ import MessageInput from './MessageInput';
 import MessageSkeleton from './skeleton/MessageSkeleton';
 import { useAuthStore } from '../store/useAuthStore';
 import { formatMessageTime } from '../lib/utils';
+
 export default function ChatContainer() {
     const { messages, getMessages, isMessagesLoading, selectedUser, subscribeToMessages, unsubscribeFromMessages } = useChatStore()
     const { authUser } = useAuthStore()
@@ -33,8 +34,6 @@ export default function ChatContainer() {
         )
     }
 
-
-
     return (
         <div className='flex-1 flex flex-col overflow-auto'>
             <ChatHeader />
@@ -56,7 +55,11 @@ export default function ChatContainer() {
                                 {formatMessageTime(message.createdAt)}
                             </time>
                         </div>
-                        <div className='chat-bubble flex'>
+
+                        <div
+                            className={`chat-bubble flex  ${message.senderId === authUser._id ? "bg-primary text-primary-content" : "bg-base-300"}
+                        `}
+                        >
                             {message.image && (
                                 <img src={message.image} alt="Attachment" className='sm:max-w-[200px] rounded-md mb-2' />
                             )}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore"
 import { Camera, Mail, User } from 'lucide-react';
+
 export default function ProfilePage() {
     const { authUser, isUpdatingProfiles, updateProfile } = useAuthStore()
     const [selectImg, setSelectImg] = useState(null)
@@ -21,7 +22,7 @@ export default function ProfilePage() {
     }
 
     return (
-        <div className="h-screen pt-20">
+        <div className="min-h-screen pt-20">
             <div className="max-w-2xl mx-auto p-4 py-8">
                 <div className="bg-base-300 rounded-xl p-6 space-y-8">
                     <div className="text-center">
