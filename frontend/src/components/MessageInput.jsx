@@ -11,7 +11,7 @@ export default function MessageInput() {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0]
-    if(!file.type.startsWith("image/")) {
+    if (!file.type.startsWith("image/")) {
       toast.error("Please select an image file")
       return
     }
@@ -25,12 +25,13 @@ export default function MessageInput() {
 
   const removeImage = () => {
     setImagePreview(null)
-    if(fileInputRef.current) fileInputRef.current.value = ""
+    if (fileInputRef.current) fileInputRef.current.value = ""
   }
 
   const handleSendMessage = async (e) => {
     e.preventDefault()
-    if(!text.trim() && !imagePreview) return
+    console.log(imagePreview)
+    if (!text.trim() && !imagePreview) return
 
     try {
       await sendMessage({
@@ -40,7 +41,7 @@ export default function MessageInput() {
 
       setText("")
       setImagePreview(null)
-      if(fileInputRef.current) fileInputRef.current.value = ""
+      if (fileInputRef.current) fileInputRef.current.value = ""
     } catch (error) {
       console.error("Failed to send message", error)
     }
@@ -76,12 +77,12 @@ export default function MessageInput() {
             onChange={handleImageChange}
           />
           <button type="button"
-            className={`hidden sm:flex btn btn-circle ${imagePreview ? "text-emerald-500": "text-zinc-400"}`}
+            className={`hidden sm:flex btn btn-circle ${imagePreview ? "text-emerald-500" : "text-zinc-400"}`}
             onClick={() => fileInputRef.current?.click()}
           >
             <Image size={20} />
           </button>
-          
+
         </div>
         <button type="submit"
           className="btn btn-sm btn-circle"
